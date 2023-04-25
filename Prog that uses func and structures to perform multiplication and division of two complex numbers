@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+struct Complex {
+    float real;
+    float imag;
+};
+
+struct Complex multiply(struct Complex num1, struct Complex num2);
+struct Complex divide(struct Complex num1, struct Complex num2);
+
+int main() {
+    struct Complex num1, num2, result;
+
+    // Input first complex number
+    printf("Enter real and imaginary parts of first complex number: ");
+    scanf("%f %f", &num1.real, &num1.imag);
+
+    // Input second complex number
+    printf("Enter real and imaginary parts of second complex number: ");
+    scanf("%f %f", &num2.real, &num2.imag);
+
+    // Perform multiplication and division
+    result = multiply(num1, num2);
+    printf("Product = %.1f + %.1fi\n", result.real, result.imag);
+
+    result = divide(num1, num2);
+    printf("Quotient = %.1f + %.1fi\n", result.real, result.imag);
+
+    return 0;
+}
+
+struct Complex multiply(struct Complex num1, struct Complex num2) {
+    struct Complex temp;
+
+    temp.real = (num1.real * num2.real) - (num1.imag * num2.imag);
+    temp.imag = (num1.real * num2.imag) + (num1.imag * num2.real);
+
+    return temp;
+}
+
+struct Complex divide(struct Complex num1, struct Complex num2) {
+    struct Complex temp;
+
+    float denominator = (num2.real * num2.real) + (num2.imag * num2.imag);
+
+    temp.real = ((num1.real * num2.real) + (num1.imag * num2.imag)) / denominator;
+    temp.imag = ((num1.imag * num2.real) - (num1.real * num2.imag)) / denominator;
+
+    return temp;
+}
