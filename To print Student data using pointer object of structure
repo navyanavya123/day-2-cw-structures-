@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+struct Student {
+    char name[50];
+    int age;
+};
+
+int main() {
+    struct Student student1, student2;
+    struct Student *ptr1 = &student1;
+    struct Student *ptr2 = &student2;
+
+    // Input details of student 1 using pointer
+    printf("Enter name of student 1: ");
+    scanf("%s", ptr1->name);
+
+    printf("Enter age of student 1: ");
+    scanf("%d", &ptr1->age);
+
+    // Input details of student 2 using pointer
+    printf("Enter name of student 2: ");
+    scanf("%s", ptr2->name);
+
+    printf("Enter age of student 2: ");
+    scanf("%d", &ptr2->age);
+
+    // Print details of student 1 using pointer
+    printf("\nDetails of student 1:\n");
+    printf("Name: %s\n", ptr1->name);
+    printf("Age: %d\n", ptr1->age);
+
+    // Print details of student 2 using pointer
+    printf("\nDetails of student 2:\n");
+    printf("Name: %s\n", ptr2->name);
+    printf("Age: %d\n", ptr2->age);
+
+    return 0;
+}
